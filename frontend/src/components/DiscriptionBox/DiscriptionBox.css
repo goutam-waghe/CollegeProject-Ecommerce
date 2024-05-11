@@ -1,0 +1,25 @@
+.description-box {
+    width: 82%;
+    margin: 10px auto;
+}
+
+.description-navigator {
+    display: flex;
+}
+
+.descriptionBox-new-box {
+    border: 1px solid #dbdbdbda;
+    padding: 10px 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.descriptionBox-description {
+    border: 1px solid #909090;
+    padding: 10px 30px;
+    margin-top: 2px;
+}

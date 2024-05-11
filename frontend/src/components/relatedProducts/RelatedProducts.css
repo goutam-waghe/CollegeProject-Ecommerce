@@ -1,0 +1,25 @@
+.reletedProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 20px;
+}
+
+.reletedProducts h1 {
+    font-family: 'poppins';
+    font-weight: 500;
+
+}
+
+.reletedProducts hr {
+    width: 200px;
+    height: 6px;
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+.relatedProduct-item {
+    display: flex;
+    gap: 20px;
+}

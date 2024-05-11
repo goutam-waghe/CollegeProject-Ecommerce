@@ -1,0 +1,114 @@
+.productDisplay {
+    display: flex;
+
+    padding: 40px;
+    gap: 30px;
+    margin: 0px 100px;
+}
+
+.productDisplay_left {
+    display: flex;
+    gap: 20px;
+
+
+}
+
+.productDisplay-img-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+.productDisplay-img-list img {
+    width: 80px;
+}
+
+.productDisplay-main-img {
+    width: 356px;
+}
+
+.productDisplay-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.productDisplay-right h1 {
+    font-family: "poppins";
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.productDisplay-right-star {
+    display: flex;
+    gap: 5px;
+
+}
+
+.productDisplay-right-prices {
+    display: flex;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 1.3rem;
+
+}
+
+.product-display-right-new_price {
+    color: #ff4646;
+}
+
+.product-display-right-old_price {
+    text-decoration: line-through;
+    color: #747474;
+}
+
+.productDisplay-right-size {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.productDisplay-right-size h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.productDisplay-right-sizes {
+    display: flex;
+    gap: 20px;
+}
+
+.productDisplay-right-sizes div {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #8b8b8bdc;
+    background-color: #fefefe;
+}
+
+
+.productDisplay-right button {
+    padding: 10px 20px;
+    width: 200px;
+    background-color: #ff4646;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.productDisplay-right-description {
+    font-size: 0.8rem;
+    font-family: 'poppins';
+    font-weight: 400;
+
+}
+
+.productDisplay-right-category span {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 10px;
+}
