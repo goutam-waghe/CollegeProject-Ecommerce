@@ -130,8 +130,115 @@ app.post("/removeproduct", async (req, res) => {
 // creating Api to get all product
 app.get("/allproducts", async (req, res) => {
   let products = await Product.find({});
-  console.log("all product fetched");
+  // console.log("all product fetched");
   res.send(products);
+});
+
+//Creating Schema for user
+
+const Users = mongoose.model("User", {
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  cartData: {
+    type: Object,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+//creating endpoint for register User
+
+app.post("/signup", async (req, res) => {
+  let check = await Users.findOne({ email: req.body.email });
+  if (check) {
+    return res.status(400).json({
+      success: false,
+      error: "Error:this email is already exist",
+    });
+  }
+
+  let cart = {};
+  for (let i = 0; i < 300; i++) {
+    cart[i] = 0;
+  }
+
+  const user = new Users({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    cartData: cart,
+  });
+
+  await user.save();
+
+  const data = {
+    user: {
+      id: user.id,
+    },
+  };
+
+  const token = jwt.sign(data, "secret_ecom");
+
+  res.json({
+    success: true,
+    token,
+  });
+});
+
+//creating endPoint for user Login
+app.post("/login", async (req, res) => {
+  let user = await Users.findOne({ email: req.body.email });
+  if (user) {
+    const passCompare = req.body.password === user.password;
+    if (passCompare) {
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
+      const token = jwt.sign(data, "secret_ecom");
+      res.json({
+        success: true,
+        token,
+      });
+    } else {
+      res.json({
+        success: false,
+        error: "Password is wrong",
+      });
+    }
+  } else {
+    res.json({
+      success: false,
+      error: "Wrong email",
+    });
+  }
+});
+
+//Creating endPoint for new collection
+app.get("/newcollection", async (req, res) => {
+  let products = await Product.find({});
+  let newcollection = products.slice(1).slice(-8);
+  // console.log("newCOllection fetched ");
+  res.send(newcollection);
+});
+
+//Creating endPoint for Popular in Women
+app.get("/popularinwomen", async (req, res) => {
+  let products = await Product.find({ category: "women" });
+  let popularinwomen = products.slice(0, 4);
+  // console.log("populer in women in fetched");
+  res.send(popularinwomen);
 });
 
 app.listen(port, (error) => {

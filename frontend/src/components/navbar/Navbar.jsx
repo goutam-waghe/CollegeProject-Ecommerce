@@ -23,7 +23,8 @@ const Navbar = () => {
 </ul>
 
 <div className="nav-login-cart">
-  <button><Link style={{textDecoration:"none" , color:"black"}}  to="/login"> Login </Link></button>
+  {localStorage.getItem('auth-token')?<button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/')}}>Logout</button>:  <button><Link style={{textDecoration:"none" , color:"black"}}  to="/login"> Login </Link></button>}
+
   <Link to="/cart"> <img src={cartIcon} alt="" /> </Link> 
   <div className="nav-cart-counter">{totalCartitems()}</div>
 </div>
